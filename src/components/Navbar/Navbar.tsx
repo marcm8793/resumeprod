@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Hamburger from "./Hamburger";
+import { ModeToggle } from "../ModeToggle";
+import { Button } from "@/components/ui/button";
 
 const routes = [
   {
@@ -9,16 +11,24 @@ const routes = [
     route: "/",
   },
   {
-    key: "Blog",
-    route: "/blog",
-  },
-  {
     key: "Projects",
     route: "/projects",
   },
   {
+    key: "Blog",
+    route: "/blog",
+  },
+  {
+    key: "About",
+    route: "/about",
+  },
+  {
     key: "Resume",
-    route: "/Konrad_Staniszewski_Resume.pdf",
+    route: "/resume",
+  },
+  {
+    key: "Contact",
+    route: "/contact",
   },
 ];
 
@@ -31,7 +41,7 @@ const Header = (): JSX.Element => {
 
   return (
     <header>
-      <div className="max-w-5xl px-8 mx-auto">
+      <div className="container px-8 mx-auto justify-center items-center">
         <div
           id="header-container"
           className={`flex items-start justify-between py-6`}
@@ -46,17 +56,21 @@ const Header = (): JSX.Element => {
             >
               {routes.map(({ key, route }) => (
                 <Link href={route} key={key}>
-                  <button>{key}</button>
+                  <Button variant="ghost">{key}</Button>
                 </Link>
               ))}
             </nav>
           </div>
-
-          <Link href="home">
-            <h2 className={`${navOpen ? "hidden" : "text-2xl font-bold"}`}>
-              Marc Mansour
-            </h2>
-          </Link>
+          <div className="justify-center items-center flex">
+            <ModeToggle />
+            <Link href="home">
+              <h2
+                className={`${navOpen ? "hidden" : "text-2xl font-bold pl-4"}`}
+              >
+                Marc Mansour
+              </h2>
+            </Link>
+          </div>
         </div>
       </div>
     </header>
