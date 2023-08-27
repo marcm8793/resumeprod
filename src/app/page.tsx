@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col text-center items-center justify-center my-10 py-10 md:flex-row md:text-left">
+      <div className=" container flex flex-col text-center items-center justify-center my-10 py-10 md:flex-row md:text-left">
         <div className="md:mt-2 md:w-1/2 items-center justify-center flex ">
           <Image
             src="/pexels-norway.jpg"

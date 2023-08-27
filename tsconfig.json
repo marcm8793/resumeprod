@@ -28,7 +28,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/editor/page.jsx",
-    "src/lib/provider.js"
+    "src/lib/provider.js",
+    "src/app/blog/page.jsx",
+    "src/components/ArticleList.jsx"
   ],
   "exclude": ["node_modules"]
 }

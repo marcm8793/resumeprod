@@ -44,6 +44,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Post          Post[]
+  Article       Article[]
 }
 
 model VerificationToken {
@@ -65,4 +66,17 @@ model Post {
   author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
 
   @@map(name: "posts")
+}
+
+model Article {
+  id        String   @id @default(cuid())
+  title     String?
+  content   String?
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
+  authorId  String
+
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map(name: "articles")
 }
