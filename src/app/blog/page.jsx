@@ -1,33 +1,33 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 const page = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    async function fetchArticles() {
-      try {
-        const response = await axios.get("/api/article");
-        setArticles(response.data);
-      } catch (error) {
-        console.error("Erreur lors de la récupération des articles :", error);
-      }
-    }
-
-    fetchArticles();
+    axios
+      .get("/api/article")
+      .then((response) => setArticles(response.data))
+      .catch((error) =>
+        console.error("Erreur lors du chargement des articles :", error)
+      );
   }, []);
+
   return (
     <div>
-      <h1>Blog</h1>
-      <ul>
-        {articles.map((article) => (
-          <li key={article.id}>
-            <h2>{article.title}</h2>
-            <div dangerouslySetInnerHTML={{ __html: article.content }} />
-          </li>
-        ))}
-      </ul>
+      <h1>Liste des articles</h1>
+      {articles.map((article) => (
+        <div key={article.id}>
+          <Link href={`/blog/${article.id}`}>
+            <div>
+              <h2>{article.title}</h2>
+              <p>{article.description}</p>
+            </div>
+          </Link>
+        </div>
+      ))}
     </div>
   );
 };

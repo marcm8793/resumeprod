@@ -4,6 +4,7 @@ import Link from "next/link";
 import Hamburger from "./Hamburger";
 import { ModeToggle } from "../ModeToggle";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@radix-ui/react-dropdown-menu";
 
 const routes = [
   {
@@ -40,40 +41,44 @@ const Header = (): JSX.Element => {
   }
 
   return (
-    <header>
-      <div className="container px-8 mx-auto justify-center items-center">
-        <div
-          id="header-container"
-          className={`flex items-start justify-between py-6`}
-        >
-          <div className="flex flex-col flex-grow my-auto">
-            <Hamburger navOpen={navOpen} clickHamburger={clickHamburger} />
-            <nav
-              id="navigation"
-              className={`${
-                navOpen ? "flex flex-col pl-16 md:pl-3 text-center" : "hidden"
-              } md:text-left md:block`}
-            >
-              {routes.map(({ key, route }) => (
-                <Link href={route} key={key}>
-                  <Button variant="ghost">{key}</Button>
-                </Link>
-              ))}
-            </nav>
-          </div>
-          <div className="justify-center items-center flex">
-            <ModeToggle />
-            <Link href="home">
-              <h2
-                className={`${navOpen ? "hidden" : "text-2xl font-bold pl-4"}`}
+    <>
+      <header>
+        <div className="container px-8 mx-auto justify-center items-center">
+          <div
+            id="header-container"
+            className={`flex items-start justify-between py-6`}
+          >
+            <div className="flex flex-col flex-grow my-auto">
+              <Hamburger navOpen={navOpen} clickHamburger={clickHamburger} />
+              <nav
+                id="navigation"
+                className={`${
+                  navOpen ? "flex flex-col pl-16 md:pl-3 text-center" : "hidden"
+                } md:text-left md:block`}
               >
-                Marc Mansour
-              </h2>
-            </Link>
+                {routes.map(({ key, route }) => (
+                  <Link href={route} key={key}>
+                    <Button variant="ghost">{key}</Button>
+                  </Link>
+                ))}
+              </nav>
+            </div>
+            <div className="justify-center items-center flex">
+              <ModeToggle />
+              <Link href="home">
+                <h2
+                  className={`${
+                    navOpen ? "hidden" : "text-2xl font-bold pl-4"
+                  }`}
+                >
+                  Marc Mansour
+                </h2>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 

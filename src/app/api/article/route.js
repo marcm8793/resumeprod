@@ -1,7 +1,6 @@
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { json } from "stream/consumers";
 
 //! POST create a new post
 export async function POST(req) {
@@ -20,23 +19,33 @@ export async function POST(req) {
 
     const article = await prisma.article.create({
       data: {
+        title: body.title, // Ajouter le titre à la base de données
+        description: body.description, // Ajouter la description à la base de données
         content: body.content,
         authorId: user.id,
       },
     });
+
     console.log(article);
-    return new Response({ message: "Created successfully", article });
+    return new Response(
+      JSON.stringify({ message: "Created successfully", article }),
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (error) {
     console.error(error);
+    return new Response(null, { status: 500 });
   }
-  return new Response(null, { status: 500 });
 }
 
 export async function GET(req) {
   try {
     const articles = await prisma.article.findMany();
 
-    return new Response(JSON.stringify(articles));
+    return new Response(JSON.stringify(articles), {
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
     console.error(error);
     return new Response("An error occurred", { status: 500 });
