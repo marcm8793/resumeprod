@@ -1,6 +1,4 @@
-"use client";
-import { Separator } from "@radix-ui/react-dropdown-menu";
-import ReactHtmlParser from "react-html-parser";
+import parse from "html-react-parser";
 
 async function getData(id) {
   const res = await fetch(`http://localhost:3000/api/article/${id}`);
@@ -25,6 +23,16 @@ const page = async ({ params }) => {
     return <div>Loading...</div>;
   }
 
+  const localDate = new Date(data.article.createdAt).toLocaleString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    timeZoneName: "short",
+  });
+
   return (
     <>
       <div className="container">
@@ -32,9 +40,15 @@ const page = async ({ params }) => {
           {data.article.title}
         </p>
         <br />
-        <p className="text-2xl">{data.article.description}</p>
+        <div className="flex justify-between items-center">
+          <p className="text-2xl">{data.article.description}</p>
+          <div className="text-right">
+            Published on <span>{localDate}</span>
+          </div>
+        </div>
+
         <br />
-        <div>{ReactHtmlParser(data.article.content)}</div>
+        <div>{parse(data.article.content)}</div>
       </div>
     </>
   );

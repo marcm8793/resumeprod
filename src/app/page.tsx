@@ -23,8 +23,8 @@ export default function Home() {
             <span className="font-semibold text-teal-600">
               Project Manager in Finance{" "}
             </span>
-            based in Paris. Working towards creating software that makes life
-            easier and more meaningful.
+            based in Paris. Working towards creating web applications that makes
+            life easier and more meaningful.
           </p>
           <Link
             href="projects"

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Hamburger from "./Hamburger";
 import { ModeToggle } from "../ModeToggle";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@radix-ui/react-dropdown-menu";
+import { Separator } from "@/components/ui/separator";
 
 const routes = [
   {
@@ -25,7 +25,7 @@ const routes = [
   },
   {
     key: "Resume",
-    route: "/resume",
+    route: "/CV_website.pdf",
   },
   {
     key: "Contact",
@@ -57,7 +57,11 @@ const Header = (): JSX.Element => {
                 } md:text-left md:block`}
               >
                 {routes.map(({ key, route }) => (
-                  <Link href={route} key={key}>
+                  <Link
+                    href={route}
+                    key={key}
+                    target={key === "Resume" ? "_blank" : "_self"}
+                  >
                     <Button variant="ghost">{key}</Button>
                   </Link>
                 ))}
@@ -76,6 +80,7 @@ const Header = (): JSX.Element => {
               </Link>
             </div>
           </div>
+          <Separator />
         </div>
       </header>
     </>

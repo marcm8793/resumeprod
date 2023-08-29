@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 
 const page = () => {
   const [articles, setArticles] = useState([]);
@@ -15,19 +16,34 @@ const page = () => {
       );
   }, []);
 
+  const sortedArticles = articles.sort((a, b) => {
+    const dateA = new Date(a.created_at);
+    const dateB = new Date(b.created_at);
+    return dateA - dateB;
+  });
+
   return (
-    <div>
-      <h1>Liste des articles</h1>
-      {articles.map((article) => (
-        <div key={article.id}>
-          <Link href={`/blog/${article.id}`}>
-            <div>
-              <h2>{article.title}</h2>
-              <p>{article.description}</p>
+    <div className="container p-5">
+      <h1 className="font-bold">Liste des articles</h1>
+      {sortedArticles
+        .map((article) => (
+          <div>
+            <div key={article.id} className="flex justify-between items-center">
+              <div className="p-2 flex flex-col">
+                <Link href={`/blog/${article.id}`}>
+                  <h2 className="font-bold">{article.title}</h2>
+                </Link>
+                <p>{article.description}</p>
+              </div>
+              <div className="text-right">
+                Published on{" "}
+                <span>{new Date(article.createdAt).toLocaleDateString()}</span>
+              </div>
             </div>
-          </Link>
-        </div>
-      ))}
+            <Separator />
+          </div>
+        ))
+        .reverse()}
     </div>
   );
 };
