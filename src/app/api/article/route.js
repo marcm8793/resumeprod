@@ -19,8 +19,8 @@ export async function POST(req) {
 
     const article = await prisma.article.create({
       data: {
-        title: body.title, // Ajouter le titre à la base de données
-        description: body.description, // Ajouter la description à la base de données
+        title: body.title,
+        description: body.description,
         content: body.content,
         authorId: user.id,
       },

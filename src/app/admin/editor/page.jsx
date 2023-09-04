@@ -41,7 +41,7 @@ const Page = () => {
 
   return (
     <>
-      <div>
+      <div className="container">
         <input
           type="text"
           placeholder="Titre de l'article"

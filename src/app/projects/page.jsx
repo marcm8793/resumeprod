@@ -40,7 +40,7 @@ const page = () => {
                       alt=""
                       width={500}
                       height={500}
-                      className="rounded-xl shadow-xl hover:opacity-70"
+                      className="rounded-xl shadow-xl hover:opacity-70 border"
                     />
                   </Link>
                 </div>
