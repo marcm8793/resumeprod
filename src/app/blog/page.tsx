@@ -4,8 +4,16 @@ import axios from "axios";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 
+interface Article {
+  id: number;
+  title: string;
+  description: string;
+  created_at: string;
+  createdAt: string;
+}
+
 const page = () => {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
     axios
@@ -19,7 +27,7 @@ const page = () => {
   const sortedArticles = articles.sort((a, b) => {
     const dateA = new Date(a.created_at);
     const dateB = new Date(b.created_at);
-    return dateA - dateB;
+    return dateA.getTime() - dateB.getTime();
   });
 
   return (

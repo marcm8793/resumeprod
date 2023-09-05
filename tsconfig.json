@@ -29,11 +29,11 @@
     ".next/types/**/*.ts",
     "src/app/admin/editor/page.tsx",
     "src/lib/provider.ts",
-    "src/app/blog/page.jsx",
+    "src/app/blog/page.tsx",
     "src/components/ArticleList.jsx",
     "src/app/api/article/route.ts",
     "src/app/admin/layout.tsx",
-    "src/components/LoginButton.jsx"
+    "src/components/LoginButton.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
 const Page = () => {
-  const editorRef = useRef(null);
+  const editorRef = useRef<any>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -58,7 +58,6 @@ const Page = () => {
           onInit={(evt, editor) => (editorRef.current = editor)}
           initialValue="<p>This is the initial content of the editor.</p>"
           init={{
-            selector: "textarea",
             height: 500,
             menubar: false,
             plugins: [

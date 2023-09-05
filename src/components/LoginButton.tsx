@@ -18,6 +18,7 @@ import { LogOut, User, Mail, GanttChartSquare } from "lucide-react";
 export default function LoginBtn() {
   const { data: session } = useSession();
   if (session) {
+    const userName = session.user?.name || "";
     return (
       <>
         <DropdownMenu>
@@ -33,10 +34,9 @@ export default function LoginBtn() {
               ></Image>
             ) : (
               <Avatar
-                name={session.user?.name}
+                name={userName}
                 className="rounded-full"
                 alt="Profile image"
-                id="image"
                 size="50"
               />
             )}
