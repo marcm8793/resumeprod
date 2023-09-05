@@ -24,7 +24,7 @@ const page = () => {
 
   return (
     <div className="container p-5">
-      <h1 className="font-bold">Liste des articles</h1>
+      <h1 className="font-bold">Articles</h1>
       {sortedArticles
         .map((article) => (
           <div>

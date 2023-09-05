@@ -7,11 +7,11 @@ export default function Home() {
       <div className=" container flex flex-col text-center items-center justify-center my-10 py-10 md:flex-row md:text-left">
         <div className="md:mt-2 md:w-1/2 items-center justify-center flex ">
           <Image
-            src="/pexels-norway.jpg"
+            src="/pc.jpg"
             alt="photo norway"
-            width={400}
-            height={400}
-            className="rounded-full shadow-2xl"
+            width={500}
+            height={500}
+            className="shadow-2xl rounded-xl"
           />
         </div>
         <div className="md:mt-2 md:w-1/2">
@@ -21,10 +21,10 @@ export default function Home() {
           <p className="text-lg mt-4 mb-6 md:text-2xl">
             I&#39;m a{" "}
             <span className="font-semibold text-teal-600">
-              Project Manager in Finance{" "}
+              tech enthusiast.{" "}
             </span>
-            based in Paris. Working towards creating web applications that makes
-            life easier and more meaningful.
+            Working towards creating web applications that makes life easier and
+            more meaningful.
           </p>
           <Link
             href="projects"
