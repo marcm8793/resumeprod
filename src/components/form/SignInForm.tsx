@@ -39,7 +39,7 @@ const SignInForm = () => {
   const session = useSession();
   useEffect(() => {
     if (session?.status === "authenticated") {
-      router.push("/");
+      router.push("/admin/editor");
     }
   });
 
@@ -56,8 +56,7 @@ const SignInForm = () => {
         variant: "destructive",
       });
     } else {
-      router.refresh();
-      router.push("/admin");
+      router.push("/admin/editor");
     }
   };
 

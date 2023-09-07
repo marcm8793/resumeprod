@@ -1,6 +1,8 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 const Page = () => {
   const editorRef = useRef<any>(null);
@@ -42,17 +44,18 @@ const Page = () => {
   return (
     <>
       <div className="container">
-        <input
-          type="text"
-          placeholder="Titre de l'article"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <textarea
-          placeholder="Description de l'article"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
+        <div className="justify-center items-center flex flex-col p-5 gap-5 w-1/2 mx-auto">
+          <Textarea
+            placeholder="Titre de l'article"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <Textarea
+            placeholder="Description de l'article"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          ></Textarea>
+        </div>
         <Editor
           apiKey="yt6nh3gohozg0k1mhyg0785zlgynwe5me14knolnll8ervv4"
           onInit={(evt, editor) => (editorRef.current = editor)}
@@ -93,9 +96,15 @@ const Page = () => {
               "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           }}
         />
+        <div className="justify-center items-center flex flex-col">
+          <Button variant="secondary" onClick={log}>
+            Log editor content
+          </Button>
+          <Button variant="secondary" onClick={handleSave}>
+            Enregistrer
+          </Button>
+        </div>
       </div>
-      <button onClick={log}>Log editor content</button>
-      <button onClick={handleSave}>Enregistrer</button>
     </>
   );
 };

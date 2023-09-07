@@ -15,15 +15,15 @@ import emailjs from "@emailjs/browser";
 import Image from "next/image";
 
 const page = () => {
-  const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: any) => {
     e.preventDefault();
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_YOUR_SERVICE_ID,
-        process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID,
-        form.current,
+        process.env.NEXT_PUBLIC_YOUR_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID!,
+        form.current!,
         process.env.NEXT_PUBLIC_YOUR_PUBLIC_KEY
       )
       .then(

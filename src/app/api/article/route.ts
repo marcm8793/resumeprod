@@ -3,10 +3,10 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 //! POST create a new post
-export async function POST(req) {
+export async function POST(req: any) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session) {
+    if (!session || !session.user || !session.user.email) {
       return new Response("Unauthorized", { status: 403 });
     }
 
@@ -17,6 +17,10 @@ export async function POST(req) {
       },
     });
 
+    if (!user) {
+      return new Response("User not found", { status: 404 });
+    }
+
     const article = await prisma.article.create({
       data: {
         title: body.title,
@@ -26,7 +30,6 @@ export async function POST(req) {
       },
     });
 
-    console.log(article);
     return new Response(
       JSON.stringify({ message: "Created successfully", article }),
       {
@@ -39,7 +42,7 @@ export async function POST(req) {
   }
 }
 
-export async function GET(req) {
+export async function GET(req: any) {
   try {
     const articles = await prisma.article.findMany();
 

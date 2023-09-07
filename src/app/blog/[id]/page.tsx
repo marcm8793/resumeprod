@@ -1,15 +1,15 @@
 import parse from "html-react-parser";
 
-async function getData(id) {
+async function getData(id: string) {
   const res = await fetch(`http://localhost:3000/api/article/${id}`);
 
   if (!res.ok) {
-    return notFound();
+    return { message: "There was an error." };
   }
   return res.json();
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }: { params: { id: string } }) {
   const article = await getData(params.id);
   return {
     title: article.article.title,
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const page = async ({ params }) => {
+const page = async ({ params }: { params: { id: string } }) => {
   const data = await getData(params.id);
   if (!data) {
     return <div>Loading...</div>;

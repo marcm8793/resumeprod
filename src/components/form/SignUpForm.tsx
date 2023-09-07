@@ -54,7 +54,7 @@ const SignUpForm = () => {
   const session = useSession();
   useEffect(() => {
     if (session?.status === "authenticated") {
-      router.push("/");
+      router.push("/admin/editor");
     }
   });
 

@@ -9,9 +9,10 @@ export default function Home() {
           <Image
             src="/pc.jpg"
             alt="photo norway"
-            width={500}
-            height={500}
-            className="shadow-2xl rounded-xl"
+            width={380}
+            height={380}
+            className="shadow-2xl rounded-xl w-auto h-auto"
+            priority
           />
         </div>
         <div className="md:mt-2 md:w-1/2">

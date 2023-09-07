@@ -35,8 +35,8 @@ const page = () => {
       <h1 className="font-bold">Articles</h1>
       {sortedArticles
         .map((article) => (
-          <div>
-            <div key={article.id} className="flex justify-between items-center">
+          <div key={article.id}>
+            <div className="flex justify-between items-center">
               <div className="p-2 flex flex-col">
                 <Link href={`/blog/${article.id}`}>
                   <h2 className="font-bold">{article.title}</h2>
