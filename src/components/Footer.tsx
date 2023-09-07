@@ -1,7 +1,5 @@
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import React from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 const Footer = () => (
   <footer className="mx-auto max-w-3xl px-4 sm:px-6 md:max-w-5xl ">
@@ -42,7 +40,7 @@ const Footer = () => (
           />
         </a>
         <a
-          href="mailto:marcmansour@outlook.com"
+          href="mailto:marcmansour@outlook.fr"
           rel="noreferrer"
           target="_blank"
         >

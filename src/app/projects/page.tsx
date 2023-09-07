@@ -9,7 +9,7 @@ const projects = [
       "Website to describe my projects and my experience as a developper.",
     image: "/portfolio2.png",
     github: "https://github.com/marcm8793/resumeprod",
-    link: "https://marcmansour.dev/",
+    link: "/",
   },
   {
     name: "NextApps",

@@ -1,7 +1,9 @@
 import parse from "html-react-parser";
 
 async function getData(id: string) {
-  const res = await fetch(`http://localhost:3000/api/article/${id}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVURL}/api/article/${id}`
+  );
 
   if (!res.ok) {
     return { message: "There was an error." };

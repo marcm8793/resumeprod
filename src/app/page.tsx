@@ -8,7 +8,7 @@ export default function Home() {
         <div className="md:mt-2 md:w-1/2 items-center justify-center flex ">
           <Image
             src="/pc.jpg"
-            alt="photo norway"
+            alt="photo pc"
             width={380}
             height={380}
             className="shadow-2xl rounded-xl w-auto h-auto"
