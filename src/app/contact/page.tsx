@@ -14,7 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 import Image from "next/image";
 
-const page = () => {
+const Page = () => {
   const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e: any) => {
@@ -41,7 +41,7 @@ const page = () => {
       <div className="md:w-1/2 md:flex-row">
         <Card className="">
           <CardHeader>
-            <CardTitle>Let's find solutions together.</CardTitle>
+            <CardTitle>Let&apos;s find solutions together.</CardTitle>
             <CardDescription>
               Send me an email and will get back to you!
             </CardDescription>
@@ -90,4 +90,4 @@ const page = () => {
     </div>
   );
 };
-export default page;
+export default Page;

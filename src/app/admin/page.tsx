@@ -20,7 +20,7 @@ const page = async () => {
           className={buttonVariants({ variant: "outline" })}
           href="/admin/signUp"
         >
-          S'enregistrer
+          S &apos;enregistrer
         </Link>
       </>
     );

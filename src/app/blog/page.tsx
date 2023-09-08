@@ -12,7 +12,7 @@ interface Article {
   createdAt: string;
 }
 
-const page = () => {
+const Page = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
@@ -56,4 +56,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
