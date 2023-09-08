@@ -13,9 +13,13 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 import Image from "next/image";
+import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const form = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
+  const router = useRouter();
 
   const sendEmail = (e: any) => {
     e.preventDefault();
@@ -29,6 +33,11 @@ const Page = () => {
       .then(
         (result) => {
           console.log(result.text);
+          toast({
+            title: "Success!",
+            description: "Your message has been sent successfully.",
+          });
+          router.push("/");
         },
         (error) => {
           console.log(error.text);
