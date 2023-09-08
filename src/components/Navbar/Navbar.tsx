@@ -69,7 +69,7 @@ const Header = (): JSX.Element => {
             </div>
             <div className="justify-center items-center flex">
               <ModeToggle />
-              <Link href="home">
+              <Link href="/">
                 <h2
                   className={`${
                     navOpen ? "hidden" : "text-2xl font-bold pl-4"
