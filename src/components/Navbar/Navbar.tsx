@@ -40,6 +40,10 @@ const Header = (): JSX.Element => {
     setNavOpen(!navOpen);
   }
 
+  function closeMenu() {
+    setNavOpen(false);
+  }
+
   return (
     <>
       <header>
@@ -62,7 +66,9 @@ const Header = (): JSX.Element => {
                     key={key}
                     target={key === "Resume" ? "_blank" : "_self"}
                   >
-                    <Button variant="ghost">{key}</Button>
+                    <Button variant="ghost" onClick={closeMenu}>
+                      {key}
+                    </Button>
                   </Link>
                 ))}
               </nav>
