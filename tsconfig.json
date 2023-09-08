@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/admin/editor/page.tsx",
-    "src/lib/provider.ts",
+    "src/lib/provider.tsx",
     "src/app/blog/page.tsx",
     "src/components/ArticleList.jsx",
     "src/app/api/article/route.ts",
