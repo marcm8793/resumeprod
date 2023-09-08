@@ -24,9 +24,9 @@ const page = () => {
         <br />
 
         <p>
-          When I'm not coding, you&apos;ll probably find me reading about the
-          latest tech trends or learning another JS framework😜. My desire to
-          learn and contribute to the world of technology keeps me motivated
+          When I&apos;m not coding, you&apos;ll probably find me reading about
+          the latest tech trends or learning another JS framework😜. My desire
+          to learn and contribute to the world of technology keeps me motivated
           every day.
         </p>
         <br />
