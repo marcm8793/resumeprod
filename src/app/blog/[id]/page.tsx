@@ -35,7 +35,7 @@ const page = async ({ params }: { params: { id: string } }) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container my-10">
         <p className="justify-center flex text-3xl font-bold tracking-tight">
           {data.article.title}
         </p>

@@ -2,7 +2,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="container text-center">
+    <div className="container text-center my-10">
       <h1>About Me</h1>
       <br />
       <h2>Follow my tech journey📚 </h2>

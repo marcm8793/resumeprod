@@ -5,6 +5,7 @@ import Header from "../components/Navbar/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { Topbar } from "@/components/nav-bar/topbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
+          <Topbar />
           {children}
           <Toaster />
           <Footer />
