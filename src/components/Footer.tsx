@@ -6,7 +6,7 @@ const Footer = () => (
     <hr className="w-full h-0.5 mx-auto mt-8 bg-neutral-200 border-0"></hr>
     <div className="mx-auto  p-4 flex flex-col text-center text-neutral-900 md:flex-row md:justify-between">
       <div className="flex flex-row items-center justify-center space-x-1 text-neutral-400">
-        © {new Date().getFullYear()}
+        © {new Date().getFullYear()} - Marc Mansour
       </div>
       <p className="text-neutral-400 text-center">
         &nbsp;Made with 🖥️ & Nextjs.
